@@ -17,6 +17,24 @@ const NewsSideContent = [
   },
 ];
 
+const NewsBottomContent = [
+  {
+    title: "Reviving Retro PCs",
+    description: "What happens when old PCs are given modern upgrades?",
+    image: "src\\assets\\news-home-page\\image-retro-pcs.jpg",
+  },
+  {
+    title: "Top 10 Laptops of 2022",
+    description: "Our best picks for various needs and budgets.",
+    image: "src\\assets\\news-home-page\\image-top-laptops.jpg",
+  },
+  {
+    title: "The Growth of Gaming",
+    description: "How the pandemic has sparked fresh opportunities.",
+    image: "src\\assets\\news-home-page\\image-gaming-growth.jpg",
+  },
+];
+
 const NewsHomePage = () => {
   return (
     <div className="grid grid-cols-12 gap-12 grid-rows-8 bg-white text-nhpDarkGrayishBlue p-12 font-inter text-[15px]">
@@ -70,6 +88,24 @@ const NewsHomePage = () => {
           READ MORE
         </button>
       </div>
+      {NewsBottomContent.map((news, index) => (
+        <div className="col-span-4 grid grid-cols-4 gap-4">
+          <div>
+            <img src={news.image} alt="Image Content" />
+          </div>
+          <div className="col-span-3 flex flex-col justify-between">
+            <span className="text-3xl text-nhpGrayishBlue font-semibold">
+              0{index + 1}
+            </span>
+            <span className="text-2xl font-bold text-nhpVeryDarkBlue cursor-pointer hover:text-nhpSoftRed">
+              {news.title}
+            </span>
+            <span className="text-xl text-nhpDarkGrayishBlue">
+              {news.description}
+            </span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
