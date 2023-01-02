@@ -72,6 +72,28 @@ const NewsHomePage = () => {
           READ MORE
         </button>
       </div>
+      {/* New Content */}
+      <div className="flex flex-col gap-4 p-4 bg-nhpVeryDarkBlue">
+        <span className="text-2xl font-semibold text-nhpSoftOrange">New</span>
+        {NewsSideContent.map((side, index) => {
+          const lastNews = index === NewsSideContent.length - 1;
+
+          return (
+            <div
+              className={`flex flex-col ${
+                !lastNews && "border-b-[1px] border-nhpGrayishBlue"
+              }`}
+            >
+              <span className="text-nhpOffWhite text-xl font-bold">
+                {side.title}
+              </span>
+              <span className={`text-nhpGrayishBlue ${!lastNews && "pb-6"}`}>
+                {side.description}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
