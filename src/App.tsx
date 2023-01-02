@@ -1,14 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NewsHomePage } from "./domains/news-home-page";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <div className="w-screen h-screen flex bg-slate-900 text-stone-100">
-      <h1>Hello World</h1>
-    </div>
+    <BrowserRouter>
+      {/* Layout */}
+      <div className="w-screen h-screen bg-slate-900 text-stone-100">
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/news-home-page" element={<NewsHomePage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-}
+};
+
+const Homepage = () => (
+  <div className="flex justify-center">
+    <h1 className="text-2xl">Homepage</h1>
+  </div>
+);
 
 export default App;
