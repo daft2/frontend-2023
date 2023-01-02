@@ -37,7 +37,7 @@ const NewsBottomContent = [
 
 const NewsHomePage = () => {
   return (
-    <div className="flex bg-white text-nhpDarkGrayishBlue p-6 md:p-12 font-inter text-[15px]">
+    <div className="flex flex-col gap-4 bg-white text-nhpDarkGrayishBlue p-6 md:p-12 font-inter text-[15px]">
       {/* Navbar */}
       <div className="flex justify-between items-center w-full">
         <div className="w-8 overflow-hidden">
@@ -53,6 +53,24 @@ const NewsHomePage = () => {
             </span>
           ))}
         </div>
+      </div>
+      {/* Content */}
+      <div className="flex flex-col gap-4">
+        <img
+          src="src\assets\news-home-page\image-web-3-mobile.jpg"
+          alt="Image Web 3 Mobile"
+        />
+        <span className="text-4xl font-extrabold text-nhpVeryDarkBlue">
+          The Bright Future of Web 3.0?
+        </span>
+        <p className="text-nhpDarkGrayishBlue">
+          We dive into the next evolution of the web that claims to put the
+          power of the platforms back into the hands of the people. But is it
+          really fulfilling its promise?
+        </p>
+        <button className="tracking-widest py-3 px-8 w-fit bg-nhpSoftRed text-nhpOffWhite text-xs">
+          READ MORE
+        </button>
       </div>
     </div>
   );
