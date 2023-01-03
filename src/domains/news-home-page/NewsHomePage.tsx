@@ -112,7 +112,7 @@ const NewsHomePage = () => {
                   the power of the platforms back into the hands of the people.
                   But is it really fulfilling its promise?
                 </p>
-                <button className="tracking-widest py-3 px-8 lg:py-4 lg:tracking-[0.2em] lg:px-16 w-fit bg-nhpSoftRed text-nhpOffWhite text-xs lg:text-lg font-bold">
+                <button className="tracking-widest py-3 px-8 lg:py-4 lg:tracking-[0.2em] lg:px-16 w-fit bg-nhpSoftRed hover:bg-nhpVeryDarkBlue text-nhpOffWhite text-xs lg:text-lg font-bold">
                   READ MORE
                 </button>
               </div>
@@ -133,7 +133,7 @@ const NewsHomePage = () => {
                       !lastNews && "border-b-[1px] border-nhpGrayishBlue"
                     }`}
                   >
-                    <span className="text-nhpOffWhite text-xl lg:text-2xl font-bold">
+                    <span className="text-nhpOffWhite text-xl lg:text-2xl font-bold cursor-pointer hover:text-nhpSoftOrange">
                       {side.title}
                     </span>
                     <span
@@ -160,7 +160,7 @@ const NewsHomePage = () => {
                 <span className="text-xl font-bold text-nhpGrayishBlue">
                   0{index + 1}
                 </span>
-                <span className="text-lg font-bold text-nhpVeryDarkBlue">
+                <span className="text-lg font-bold text-nhpVeryDarkBlue cursor-pointer hover:text-nhpSoftRed">
                   {bottom.title}
                 </span>
                 <span className="text-nhpDarkGrayishBlue">
