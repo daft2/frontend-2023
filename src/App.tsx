@@ -5,7 +5,7 @@ const App = () => {
   return (
     <BrowserRouter>
       {/* Layout */}
-      <div className="w-screen h-screen bg-slate-900 text-stone-100">
+      <div className="bg-slate-900 text-stone-100 overflow-hidden">
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Homepage />} />
