@@ -66,7 +66,7 @@ const NewsHomePage = () => {
           </div>
         </>
       )}
-      <div className="flex flex-col gap-4 w-full bg-white h-full text-nhpDarkGrayishBlue p-6 md:p-12 font-inter text-[15px]">
+      <div className="flex flex-col gap-4 w-full bg-nhpOffWhite h-full text-nhpDarkGrayishBlue p-6 md:p-12 font-inter text-[15px]">
         {/* Navbar */}
         <div className="flex justify-between items-center w-full">
           <div className="w-8 lg:w-full overflow-hidden">
