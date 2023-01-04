@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NewsHomePage } from "./domains/news-home-page";
+import { RockPaperScissors } from "./domains/rock-paper-scissors";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/news-home-page" element={<NewsHomePage />} />
+          <Route path="/rock-paper-scissors" element={<RockPaperScissors />} />
         </Routes>
       </div>
     </BrowserRouter>
