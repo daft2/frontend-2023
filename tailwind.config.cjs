@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        barlowSemiCondensed: ["Barlow Semi Condensed", "sans-serif"],
       },
       colors: {
         // News Home Page Colors
