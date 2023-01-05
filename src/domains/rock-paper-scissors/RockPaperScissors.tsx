@@ -5,7 +5,7 @@ const ActionMove = ["rock", "paper", "scissors", "lizard", "spock"];
 
 const RockPaperScissors = () => {
   return (
-    <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight">
+    <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight relative">
       <div className="flex flex-col my-8 w-full items-center mx-4">
         <div className="flex justify-between border-4 border-rpsHeader rounded-lg xl:rounded-2xl max-w-5xl w-full items-center p-4">
           <div className="flex flex-col">
@@ -23,7 +23,7 @@ const RockPaperScissors = () => {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <div className="flex flex-col my-40 w-[20rem] lg:w-[28rem]">
+          <div className="flex flex-col my-32 w-[20rem] lg:w-[28rem]">
             <div className="flex items-center justify-center">
               <ActionCircle action="scissors" />
             </div>
@@ -37,6 +37,11 @@ const RockPaperScissors = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-12 lg:right-12">
+        <button className="text-2xl tracking-widest border rounded-xl w-[10rem] py-2">
+          RULES
+        </button>
       </div>
     </div>
   );
