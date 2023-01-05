@@ -1,9 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import ActionCircle from "./components/ActionCircle";
+import RulesModal from "./components/RulesModal";
 
 const ActionMove = ["rock", "paper", "scissors", "lizard", "spock"];
 
 const RockPaperScissors = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModal = () => setIsModalOpen(!isModalOpen);
+
   return (
     <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight relative">
       <div className="flex flex-col my-8 w-full items-center mx-4">
@@ -39,10 +44,14 @@ const RockPaperScissors = () => {
         </div>
       </div>
       <div className="absolute bottom-12 lg:right-12">
-        <button className="text-2xl tracking-widest border rounded-xl w-[10rem] py-2">
+        <button
+          className="text-2xl tracking-widest border rounded-xl w-[10rem] py-2"
+          onClick={handleModal}
+        >
           RULES
         </button>
       </div>
+      <RulesModal isVisible={isModalOpen} onClick={handleModal} />
     </div>
   );
 };
