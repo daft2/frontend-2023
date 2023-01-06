@@ -27,8 +27,13 @@ const RockPaperScissors = () => {
   useEffect(() => {
     if (gameState == null) return;
     if (gameState == 1) setScore(score + 1);
-    if (gameState == 2) setScore(score - 1);
+    if (gameState == 0 && score > 0) setScore(score - 1);
   }, [gameState]);
+
+  const handlePlayAgain = () => {
+    setGameState(null);
+    setPlayerAction(null);
+  };
 
   return (
     <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight relative">
@@ -60,14 +65,17 @@ const RockPaperScissors = () => {
         )}
         {gameState !== null && (
           <div className="flex flex-col items-center justify-center gap-4">
-            {gameState === 1 ? (
-              <span className="text-6xl font-bold tracking-wider">YOU WIN</span>
-            ) : gameState === 0 ? (
-              <span>YOU LOSE</span>
-            ) : (
-              <span>DRAW</span>
-            )}
-            <button className="bg-slate-100 rounded text-rpsDark w-full text-lg py-2 tracking-widest cursor-pointer hover:bg-rpsDark hover:text-slate-100">
+            <span className="text-6xl font-bold tracking-wider">
+              {gameState === 1
+                ? "YOU WIN"
+                : gameState === 0
+                ? "YOU LOSE"
+                : "DRAW"}
+            </span>
+            <button
+              onClick={handlePlayAgain}
+              className="bg-slate-100 rounded text-rpsDark w-full text-lg py-2 tracking-widest cursor-pointer hover:bg-rpsDark hover:text-slate-100"
+            >
               PLAY AGAIN
             </button>
           </div>
