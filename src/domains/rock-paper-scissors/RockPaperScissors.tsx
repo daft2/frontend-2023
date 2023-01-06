@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BattleState from "./components/BattleState";
 import PreparationState from "./components/PreparationState";
 import RulesModal from "./components/RulesModal";
@@ -16,10 +16,19 @@ export type ActionMoveType =
 const RockPaperScissors = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [playerAction, setPlayerAction] = useState<ActionMoveType>(null);
+  // Game State is 0 for lose, 1 for win, and 2 for draw
+  const [gameState, setGameState] = useState<number | null>(null);
+  const [score, setScore] = useState<number>(0);
 
   const handleModal = () => setIsModalOpen(!isModalOpen);
 
   const handleSelectAction = (value: ActionMoveType) => setPlayerAction(value);
+
+  useEffect(() => {
+    if (gameState == null) return;
+    if (gameState == 1) setScore(score + 1);
+    if (gameState == 2) setScore(score - 1);
+  }, [gameState]);
 
   return (
     <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight relative">
@@ -35,14 +44,34 @@ const RockPaperScissors = () => {
           <div className="bg-white rounded-xl text-rpsScore flex flex-col items-center justify-center px-8 xl:px-12 py-3">
             <span className="tracking-widest text-xs xl:text-xl">SCORE</span>
             <span className="text-5xl xl:text-7xl font-bold text-rpsDark">
-              12
+              {score}
             </span>
           </div>
         </div>
         {playerAction === null && (
           <PreparationState onSelectAction={handleSelectAction} />
         )}
-        {playerAction !== null && <BattleState playerAction={playerAction} />}
+        {playerAction !== null && (
+          <BattleState
+            gameState={gameState}
+            setGameState={setGameState}
+            playerAction={playerAction}
+          />
+        )}
+        {gameState !== null && (
+          <div className="flex flex-col items-center justify-center gap-4">
+            {gameState === 1 ? (
+              <span className="text-6xl font-bold tracking-wider">YOU WIN</span>
+            ) : gameState === 0 ? (
+              <span>YOU LOSE</span>
+            ) : (
+              <span>DRAW</span>
+            )}
+            <button className="bg-slate-100 rounded text-rpsDark w-full text-lg py-2 tracking-widest cursor-pointer hover:bg-rpsDark hover:text-slate-100">
+              PLAY AGAIN
+            </button>
+          </div>
+        )}
       </div>
       <div className="absolute bottom-12 lg:right-12">
         <button
