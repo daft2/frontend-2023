@@ -1,13 +1,25 @@
 import { useState } from "react";
+import BattleState from "./components/BattleState";
 import PreparationState from "./components/PreparationState";
 import RulesModal from "./components/RulesModal";
 
 const ActionMove = ["rock", "paper", "scissors", "lizard", "spock"];
 
+export type ActionMoveType =
+  | "rock"
+  | "paper"
+  | "scissors"
+  | "lizard"
+  | "spock"
+  | null;
+
 const RockPaperScissors = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [playerAction, setPlayerAction] = useState<ActionMoveType>(null);
 
   const handleModal = () => setIsModalOpen(!isModalOpen);
+
+  const handleSelectAction = (value: ActionMoveType) => setPlayerAction(value);
 
   return (
     <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight relative">
@@ -27,7 +39,10 @@ const RockPaperScissors = () => {
             </span>
           </div>
         </div>
-        <PreparationState />
+        {playerAction === null && (
+          <PreparationState onSelectAction={handleSelectAction} />
+        )}
+        {playerAction !== null && <BattleState playerAction={playerAction} />}
       </div>
       <div className="absolute bottom-12 lg:right-12">
         <button
