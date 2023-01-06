@@ -1,8 +1,10 @@
+import { ActionMoveType } from "../RockPaperScissors";
+
 type ActionCircleType = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > & {
-  action: "rock" | "paper" | "scissors" | "lizard" | "spock";
+  action: ActionMoveType;
   className?: string;
   isLoading?: boolean;
 };
@@ -41,7 +43,7 @@ const ActionCircle: React.FC<ActionCircleType> = ({
     },
   };
 
-  if (isLoading)
+  if (isLoading || action === null)
     return (
       <div className="rounded-[100%] w-[5rem] h-[5rem] lg:w-[8rem] lg:h-[8rem] bg-rpsDark animate-pulse" />
     );
