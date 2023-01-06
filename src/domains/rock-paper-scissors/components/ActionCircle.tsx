@@ -4,11 +4,13 @@ type ActionCircleType = React.DetailedHTMLProps<
 > & {
   action: "rock" | "paper" | "scissors" | "lizard" | "spock";
   className?: string;
+  isLoading?: boolean;
 };
 
 const ActionCircle: React.FC<ActionCircleType> = ({
   action,
   className,
+  isLoading = false,
   ...props
 }) => {
   const colorMap = {
@@ -38,6 +40,11 @@ const ActionCircle: React.FC<ActionCircleType> = ({
       image: "images\\rock-paper-scissors\\icon-spock.svg",
     },
   };
+
+  if (isLoading)
+    return (
+      <div className="rounded-[100%] w-[5rem] h-[5rem] lg:w-[8rem] lg:h-[8rem] bg-rpsDark animate-pulse" />
+    );
 
   return (
     <div
