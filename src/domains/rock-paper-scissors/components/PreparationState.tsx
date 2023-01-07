@@ -9,8 +9,12 @@ const PreparationState: React.FC<PreparationStateType> = ({
   onSelectAction,
 }) => {
   return (
-    <div className="flex items-center justify-center">
-      <div className="flex flex-col my-32 w-[20rem] lg:w-[28rem]">
+    <div className="flex items-center justify-center relative">
+      <img
+        src="images\rock-paper-scissors\bg-pentagon.svg"
+        className="absolute w-4/5"
+      />
+      <div className="flex flex-col my-32 w-[20rem] lg:w-[28rem] z-10">
         <div className="flex items-center justify-center">
           <WrappedActionCircle
             action="scissors"
