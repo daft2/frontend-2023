@@ -23,17 +23,17 @@ const NewsBottomContent = [
   {
     title: "Reviving Retro PCs",
     description: "What happens when old PCs are given modern upgrades?",
-    image: "images\\news-home-page\\image-retro-pcs.jpg",
+    image: "images//news-home-page//image-retro-pcs.jpg",
   },
   {
     title: "Top 10 Laptops of 2022",
     description: "Our best picks for various needs and budgets.",
-    image: "images\\news-home-page\\image-top-laptops.jpg",
+    image: "images//news-home-page//image-top-laptops.jpg",
   },
   {
     title: "The Growth of Gaming",
     description: "How the pandemic has sparked fresh opportunities.",
-    image: "images\\news-home-page\\image-gaming-growth.jpg",
+    image: "images//news-home-page//image-gaming-growth.jpg",
   },
 ];
 
@@ -53,7 +53,7 @@ const NewsHomePage = () => {
           <div className="absolute bg-white w-3/4 h-full right-0 flex flex-col p-6">
             <div className="flex justify-end">
               <img
-                src="images\news-home-page\icon-menu-close.svg"
+                src="images/news-home-page/icon-menu-close.svg"
                 alt="Icon Close Menu Mobile"
                 onClick={handleDrawer}
               />
@@ -74,7 +74,7 @@ const NewsHomePage = () => {
           </div>
           <div className="w-8 overflow-hidden md:hidden">
             <img
-              src="images\news-home-page\icon-menu.svg"
+              src="images/news-home-page/icon-menu.svg"
               alt="Icon Menu"
               onClick={handleDrawer}
             />
@@ -92,13 +92,13 @@ const NewsHomePage = () => {
           <div className="flex flex-col gap-4 lg:max-w-[70%]">
             <div className="lg:hidden">
               <img
-                src="images\news-home-page\image-web-3-mobile.jpg"
+                src="images/news-home-page/image-web-3-mobile.jpg"
                 alt="Image Web 3 Mobile"
               />
             </div>
             <div className="hidden lg:block">
               <img
-                src="images\news-home-page\image-web-3-desktop.jpg"
+                src="images/news-home-page/image-web-3-desktop.jpg"
                 alt="Image Web 3 Mobile"
               />
             </div>
