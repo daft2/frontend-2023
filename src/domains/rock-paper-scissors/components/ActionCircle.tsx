@@ -19,27 +19,27 @@ const ActionCircle: React.FC<ActionCircleType> = ({
     rock: {
       background: "bg-gradient-to-b from-rpsRockLight to-rpsRockDark",
       border: "border-b-red-700",
-      image: "images\\rock-paper-scissors\\icon-rock.svg",
+      image: "images/rock-paper-scissors/icon-rock.svg",
     },
     paper: {
       background: "bg-gradient-to-b from-rpsPaperLight to-rpsPaperDark",
       border: "border-b-blue-700",
-      image: "images\\rock-paper-scissors\\icon-paper.svg",
+      image: "images/rock-paper-scissors/icon-paper.svg",
     },
     scissors: {
       background: "bg-gradient-to-b from-rpsScissorsLight to-rpsScissorsDark",
       border: "border-b-yellow-700",
-      image: "images\\rock-paper-scissors\\icon-scissors.svg",
+      image: "images/rock-paper-scissors/icon-scissors.svg",
     },
     lizard: {
       background: "bg-gradient-to-b from-rpsLizardLight to-rpsLizardDark",
       border: "border-b-purple-700",
-      image: "images\\rock-paper-scissors\\icon-lizard.svg",
+      image: "images/rock-paper-scissors/icon-lizard.svg",
     },
     spock: {
       background: "bg-gradient-to-b from-rpsCyanLight to-rpsCyanDark",
       border: "border-b-cyan-700",
-      image: "images\\rock-paper-scissors\\icon-spock.svg",
+      image: "images/rock-paper-scissors/icon-spock.svg",
     },
   };
 

@@ -6,13 +6,13 @@ const PROJECT = [
   {
     title: "News Home Page",
     type: "Landing Page",
-    thumbnail: "images\\news-home-page\\preview.jpg",
+    thumbnail: "images/news-home-page/preview.jpg",
     path: "/news-home-page",
   },
   {
     title: "Rock Paper Scissors",
     type: "Game",
-    thumbnail: "images\\rock-paper-scissors\\preview.jpg",
+    thumbnail: "images/rock-paper-scissors/preview.jpg",
     path: "/rock-paper-scissors",
   },
 ];
