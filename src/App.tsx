@@ -37,12 +37,12 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex w-screen h-screen bg-neutral-900 justify-center items-center">
-      <div className="flex gap-4">
+    <div className="flex w-screen h-screen bg-neutral-900 p-4 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 h-fit">
         {PROJECT.map((item) => (
           <div
             onClick={() => navigate(item.path)}
-            className="flex flex-col overflow-hidden max-w-md bg-[#121212] shadow ring-1 ring-white/10 p-2 rounded-xl gap-4 text-white/80 hover:text-white cursor-pointer hover:ring-white/50"
+            className="flex flex-col overflow-hidden bg-[#121212] h-fit shadow ring-1 ring-white/10 p-2 rounded-xl gap-4 text-white/80 hover:text-white cursor-pointer hover:ring-white/50"
           >
             <img
               src={item.thumbnail}
