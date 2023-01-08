@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { Calculator } from "./domains/calculator";
 import { NewsHomePage } from "./domains/news-home-page";
 import { RockPaperScissors } from "./domains/rock-paper-scissors";
 
@@ -15,6 +16,12 @@ const PROJECT = [
     thumbnail: "images/rock-paper-scissors/preview.jpg",
     path: "/rock-paper-scissors",
   },
+  {
+    title: "Calculator",
+    type: "App",
+    thumbnail: "images/calculator/preview.webp",
+    path: "/calculator",
+  },
 ];
 
 const App = () => {
@@ -27,6 +34,7 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/news-home-page" element={<NewsHomePage />} />
           <Route path="/rock-paper-scissors" element={<RockPaperScissors />} />
+          <Route path="/calculator" element={<Calculator />} />
         </Routes>
       </div>
     </BrowserRouter>
