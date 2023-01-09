@@ -45,6 +45,7 @@ const Calculator = () => {
   const [inputValue1, setInputValue1] = useState("0");
   const [inputValue2, setInputValue2] = useState("0");
   const [isOperation, setIsOperation] = useState(false);
+  const [currentOperator, setIsCurrentOperator] = useState("");
 
   const formatValue = (value: number) => new Intl.NumberFormat().format(value);
 
@@ -76,6 +77,36 @@ const Calculator = () => {
     setInputValue2("0");
   };
 
+  const handleOperation = (operator: string) => {
+    setIsOperation(true);
+    setIsCurrentOperator(operator);
+  };
+
+  const handleSubmit = () => {
+    setIsOperation(false);
+    const val1 = parseFloat(inputValue1);
+    const val2 = parseFloat(inputValue2);
+
+    switch (currentOperator) {
+      case "+":
+        setInputValue1((val1 + val2).toString());
+        setInputValue2("0");
+        break;
+      case "-":
+        setInputValue1((val1 - val2).toString());
+        setInputValue2("0");
+        break;
+      case "/":
+        setInputValue1((val1 / val2).toString());
+        setInputValue2("0");
+        break;
+      case "*":
+        setInputValue1((val1 * val2).toString());
+        setInputValue2("0");
+        break;
+    }
+  };
+
   return (
     <div
       className={`${themeMap[theme].main} w-screen h-screen font-leagueSpartan font-bold text-[36px]`}
@@ -105,14 +136,28 @@ const Calculator = () => {
         </div>
         {/* Value Display */}
         <div
-          className={`${themeMap[theme].display} rounded-lg w-full max-w-xl flex p-4 h-fit justify-end my-4`}
+          className={`${themeMap[theme].display} rounded-lg w-full max-w-xl flex p-4 h-fit items-end my-4 flex-col`}
         >
           {!isOperation && (
-            <span className="overflow-hidden text-ellipsis">
-              {formatValue(parseInt(inputValue1))}
-            </span>
+            <>
+              <span className="overflow-hidden text-ellipsis text-sm">
+                {formatValue(parseFloat(inputValue2))}
+              </span>
+              <span className="overflow-hidden text-ellipsis">
+                {formatValue(parseFloat(inputValue1))}
+              </span>
+            </>
           )}
-          {isOperation && <span>{formatValue(parseInt(inputValue2))}</span>}
+          {isOperation && (
+            <>
+              <span className="overflow-hidden text-ellipsis text-sm">
+                {formatValue(parseFloat(inputValue1))}
+              </span>
+              <span className="overflow-hidden text-ellipsis">
+                {formatValue(parseFloat(inputValue2))}
+              </span>
+            </>
+          )}
         </div>
         {/* Calculator Button */}
         <div
@@ -157,7 +202,12 @@ const Calculator = () => {
             value="6"
             regular
           />
-          <KeyButton theme={theme} value="+" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleOperation("+")}
+            value="+"
+            regular
+          />
           {/* Third Line */}
           <KeyButton
             theme={theme}
@@ -177,7 +227,12 @@ const Calculator = () => {
             value="3"
             regular
           />
-          <KeyButton theme={theme} value="-" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleOperation("-")}
+            value="-"
+            regular
+          />
           {/* Fourth Line */}
           <KeyButton theme={theme} value="." regular />
           <KeyButton
@@ -186,8 +241,18 @@ const Calculator = () => {
             value="0"
             regular
           />
-          <KeyButton theme={theme} value="/" regular />
-          <KeyButton theme={theme} value="x" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleOperation("/")}
+            value="/"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleOperation("*")}
+            value="x"
+            regular
+          />
           {/* Fifth Line */}
           <KeyButton
             theme={theme}
@@ -196,7 +261,13 @@ const Calculator = () => {
             value="RESET"
             action
           />
-          <KeyButton theme={theme} className="col-span-2" value="=" submit />
+          <KeyButton
+            theme={theme}
+            onClick={handleSubmit}
+            className="col-span-2"
+            value="="
+            submit
+          />
         </div>
       </div>
     </div>
