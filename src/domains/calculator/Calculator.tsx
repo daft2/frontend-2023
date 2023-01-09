@@ -16,6 +16,7 @@ const Calculator = (props: Props) => {
   return (
     <div className="bg-calcBackgroundMainT1 w-screen h-screen font-leagueSpartan font-bold text-[36px]">
       <div className="flex flex-col items-center p-5 w-full h-full">
+        {/* Header */}
         <div className="flex items-center justify-between w-full max-w-md">
           <span>calc</span>
           <div className="flex flex-row items-center gap-2">
@@ -36,6 +37,10 @@ const Calculator = (props: Props) => {
               </div>
             </div>
           </div>
+        </div>
+        {/* Value Display */}
+        <div className="bg-calcBackgroundScreenT1 rounded-lg w-full max-w-md flex p-4 h-fit justify-end my-4">
+          <span>399,981</span>
         </div>
       </div>
     </div>
