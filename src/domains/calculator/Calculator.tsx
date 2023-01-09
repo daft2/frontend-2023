@@ -58,6 +58,18 @@ const Calculator = () => {
     }
   };
 
+  const handleDelete = () => {
+    if (isOperation) {
+      const newVal = inputValue2.substring(0, inputValue2.length - 1);
+      if (inputValue2.length === 1) setInputValue2("0");
+      else setInputValue2(newVal);
+    } else {
+      const newVal = inputValue1.substring(0, inputValue1.length - 1);
+      if (inputValue1.length === 1) setInputValue1("0");
+      else setInputValue1(newVal);
+    }
+  };
+
   const handleReset = () => {
     setIsOperation(false);
     setInputValue1("0");
@@ -125,7 +137,7 @@ const Calculator = () => {
             value="9"
             regular
           />
-          <KeyButton theme={theme} value="DEL" action />
+          <KeyButton theme={theme} onClick={handleDelete} value="DEL" action />
           {/* Second Line */}
           <KeyButton
             theme={theme}
