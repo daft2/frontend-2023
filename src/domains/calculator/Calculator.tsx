@@ -80,28 +80,33 @@ const Calculator = () => {
           className={`${themeMap[theme].toggle} rounded-lg w-full max-w-xl p-6 grid grid-cols-4 gap-4 lg:gap-6`}
         >
           {/* First Line */}
-          <KeyButton value="7" regular />
-          <KeyButton value="8" regular />
-          <KeyButton value="9" regular />
-          <KeyButton value="DEL" action />
+          <KeyButton theme={theme} value="7" regular />
+          <KeyButton theme={theme} value="8" regular />
+          <KeyButton theme={theme} value="9" regular />
+          <KeyButton theme={theme} value="DEL" action />
           {/* Second Line */}
-          <KeyButton value="4" regular />
-          <KeyButton value="5" regular />
-          <KeyButton value="6" regular />
-          <KeyButton value="+" regular />
+          <KeyButton theme={theme} value="4" regular />
+          <KeyButton theme={theme} value="5" regular />
+          <KeyButton theme={theme} value="6" regular />
+          <KeyButton theme={theme} value="+" regular />
           {/* Third Line */}
-          <KeyButton value="3" regular />
-          <KeyButton value="2" regular />
-          <KeyButton value="1" regular />
-          <KeyButton value="-" regular />
+          <KeyButton theme={theme} value="3" regular />
+          <KeyButton theme={theme} value="2" regular />
+          <KeyButton theme={theme} value="1" regular />
+          <KeyButton theme={theme} value="-" regular />
           {/* Fourth Line */}
-          <KeyButton value="." regular />
-          <KeyButton value="0" regular />
-          <KeyButton value="/" regular />
-          <KeyButton value="x" regular />
+          <KeyButton theme={theme} value="." regular />
+          <KeyButton theme={theme} value="0" regular />
+          <KeyButton theme={theme} value="/" regular />
+          <KeyButton theme={theme} value="x" regular />
           {/* Fifth Line */}
-          <KeyButton className="col-span-2" value="RESET" action />
-          <KeyButton className="col-span-2" value="=" submit />
+          <KeyButton
+            theme={theme}
+            className="col-span-2"
+            value="RESET"
+            action
+          />
+          <KeyButton theme={theme} className="col-span-2" value="=" submit />
         </div>
       </div>
     </div>
@@ -131,14 +136,20 @@ const KeyButton: React.FC<
 }) => {
   const colorMap: MapType = {
     1: "bg-calcKeyGrayBackground border-calcKeyGrayShadow text-calcTextDarkBlueT1 text-3xl",
+    2: "bg-calcKeyGrayBackgroundT2 border-calcKeyGrayShadowT2 text-calcTextDarkBlueT2 text-3xl",
+    3: "bg-calcKeyDarkVioletBackgroundT3 border-calcKeyDarkVioletShadowT3 text-calcTextLightYellowT3 text-3xl",
   };
 
   const actionColorMap: MapType = {
     1: "bg-calcKeyDarkBlueBackground border-calcKeyDarkBlueShadow text-white text-xl",
+    2: "bg-calcKeyDarkCyanBackground border-calcKeyDarkCyanShadow text-white text-xl",
+    3: "bg-calcKeyVioletBackground border-calcKeyVioletShadow text-white text-xl",
   };
 
   const submitColorMap: MapType = {
     1: "bg-calcKeyRedBackground border-calcKeyRedShadow text-white text-xl",
+    2: "bg-calcKeyOrangeBackground border-calcKeyOrangeShadow text-white text-xl",
+    3: "bg-calcKeyCyanBackground border-calcKeyCyanShadow text-calcTextDarkBlueT3 text-xl",
   };
 
   return (
