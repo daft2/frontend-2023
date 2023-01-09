@@ -42,6 +42,28 @@ const Calculator = () => {
     }
   };
 
+  const [inputValue1, setInputValue1] = useState("0");
+  const [inputValue2, setInputValue2] = useState("0");
+  const [isOperation, setIsOperation] = useState(false);
+
+  const formatValue = (value: number) => new Intl.NumberFormat().format(value);
+
+  const handleInsertNumber = (value: string) => {
+    if (isOperation) {
+      if (inputValue2 == "0") setInputValue2(value);
+      else setInputValue2(inputValue2 + value);
+    } else {
+      if (inputValue1 == "0") setInputValue1(value);
+      else setInputValue1(inputValue1 + value);
+    }
+  };
+
+  const handleReset = () => {
+    setIsOperation(false);
+    setInputValue1("0");
+    setInputValue2("0");
+  };
+
   return (
     <div
       className={`${themeMap[theme].main} w-screen h-screen font-leagueSpartan font-bold text-[36px]`}
@@ -73,35 +95,91 @@ const Calculator = () => {
         <div
           className={`${themeMap[theme].display} rounded-lg w-full max-w-xl flex p-4 h-fit justify-end my-4`}
         >
-          <span>399,981</span>
+          {!isOperation && (
+            <span className="overflow-hidden text-ellipsis">
+              {formatValue(parseInt(inputValue1))}
+            </span>
+          )}
+          {isOperation && <span>{formatValue(parseInt(inputValue2))}</span>}
         </div>
         {/* Calculator Button */}
         <div
           className={`${themeMap[theme].toggle} rounded-lg w-full max-w-xl p-6 grid grid-cols-4 gap-4 lg:gap-6`}
         >
           {/* First Line */}
-          <KeyButton theme={theme} value="7" regular />
-          <KeyButton theme={theme} value="8" regular />
-          <KeyButton theme={theme} value="9" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("7")}
+            value="7"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("8")}
+            value="8"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("9")}
+            value="9"
+            regular
+          />
           <KeyButton theme={theme} value="DEL" action />
           {/* Second Line */}
-          <KeyButton theme={theme} value="4" regular />
-          <KeyButton theme={theme} value="5" regular />
-          <KeyButton theme={theme} value="6" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("4")}
+            value="4"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("5")}
+            value="5"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("6")}
+            value="6"
+            regular
+          />
           <KeyButton theme={theme} value="+" regular />
           {/* Third Line */}
-          <KeyButton theme={theme} value="3" regular />
-          <KeyButton theme={theme} value="2" regular />
-          <KeyButton theme={theme} value="1" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("1")}
+            value="1"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("2")}
+            value="2"
+            regular
+          />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("3")}
+            value="3"
+            regular
+          />
           <KeyButton theme={theme} value="-" regular />
           {/* Fourth Line */}
           <KeyButton theme={theme} value="." regular />
-          <KeyButton theme={theme} value="0" regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber("0")}
+            value="0"
+            regular
+          />
           <KeyButton theme={theme} value="/" regular />
           <KeyButton theme={theme} value="x" regular />
           {/* Fifth Line */}
           <KeyButton
             theme={theme}
+            onClick={handleReset}
             className="col-span-2"
             value="RESET"
             action
@@ -119,8 +197,6 @@ const KeyButton: React.FC<
     HTMLDivElement
   > & {
     value: string;
-    color?: string;
-    borderColor?: string;
     regular?: boolean;
     action?: boolean;
     submit?: boolean;
