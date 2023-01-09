@@ -1,9 +1,38 @@
 import React, { useState } from "react";
 
-type Props = {};
+type MapType = {
+  [key: number]: string;
+};
 
-const Calculator = (props: Props) => {
+type ThemeMapType = {
+  [key: number]: {
+    [key: string]: string;
+  };
+};
+
+const Calculator = () => {
   const [theme, setTheme] = useState(1);
+
+  const themeMap: ThemeMapType = {
+    1: {
+      main: "bg-calcBackgroundMainT1 text-white",
+      toggle: "bg-calcBackgroundToggleT1",
+      display: "bg-calcBackgroundScreenT1",
+      circle: "bg-calcKeyRedBackground",
+    },
+    2: {
+      main: "bg-calcKeyGrayBackground text-calcTextDarkBlueT2",
+      toggle: "bg-calcBackgroundToggleT2",
+      display: "bg-calcBackgroundScreenT2",
+      circle: "bg-calcKeyOrangeBackground",
+    },
+    3: {
+      main: "bg-calcBackgroundMainT3 text-calcTextLightYellowT3",
+      toggle: "bg-calcBackgroundToggleT3",
+      display: "bg-calcBackgroundToggleT3",
+      circle: "bg-calcKeyCyanBackground",
+    },
+  };
 
   const handleTheme = () => {
     if (theme < 3) {
@@ -14,7 +43,9 @@ const Calculator = (props: Props) => {
   };
 
   return (
-    <div className="bg-calcBackgroundMainT1 w-screen h-screen font-leagueSpartan font-bold text-[36px]">
+    <div
+      className={`${themeMap[theme].main} w-screen h-screen font-leagueSpartan font-bold text-[36px]`}
+    >
       <div className="flex flex-col items-center p-5 w-full h-full">
         {/* Header */}
         <div className="flex items-center justify-between w-full max-w-xl">
@@ -24,10 +55,10 @@ const Calculator = (props: Props) => {
             <div className="flex flex-col text-xs">
               <div
                 onClick={handleTheme}
-                className="bg-calcBackgroundToggleT1 col-span-3 grid grid-cols-3 p-1 rounded-full relative"
+                className={`${themeMap[theme].toggle} col-span-3 grid grid-cols-3 p-1 rounded-full relative`}
               >
                 <div
-                  className={`col-start-${theme} w-5 h-5 rounded-full bg-calcKeyRedBackground`}
+                  className={`col-start-${theme} w-5 h-5 rounded-full ${themeMap[theme].circle}`}
                 />
                 <div className="flex justify-between absolute -top-4 w-full px-2">
                   <span>1</span>
@@ -39,11 +70,15 @@ const Calculator = (props: Props) => {
           </div>
         </div>
         {/* Value Display */}
-        <div className="bg-calcBackgroundScreenT1 rounded-lg w-full max-w-xl flex p-4 h-fit justify-end my-4">
+        <div
+          className={`${themeMap[theme].display} rounded-lg w-full max-w-xl flex p-4 h-fit justify-end my-4`}
+        >
           <span>399,981</span>
         </div>
         {/* Calculator Button */}
-        <div className="bg-calcBackgroundToggleT1 rounded-lg w-full max-w-xl p-6 grid grid-cols-4 gap-4 lg:gap-6">
+        <div
+          className={`${themeMap[theme].toggle} rounded-lg w-full max-w-xl p-6 grid grid-cols-4 gap-4 lg:gap-6`}
+        >
           {/* First Line */}
           <KeyButton value="7" regular />
           <KeyButton value="8" regular />
@@ -94,10 +129,6 @@ const KeyButton: React.FC<
   theme = 1,
   ...props
 }) => {
-  type MapType = {
-    [key: number]: string;
-  };
-
   const colorMap: MapType = {
     1: "bg-calcKeyGrayBackground border-calcKeyGrayShadow text-calcTextDarkBlueT1 text-3xl",
   };
