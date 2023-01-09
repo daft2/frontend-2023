@@ -175,6 +175,4 @@ const NewsHomePage = () => {
   );
 };
 
-{
-}
 export default NewsHomePage;
