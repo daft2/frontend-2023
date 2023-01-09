@@ -18,19 +18,19 @@ const Calculator = () => {
       main: "bg-calcBackgroundMainT1 text-white",
       toggle: "bg-calcBackgroundToggleT1",
       display: "bg-calcBackgroundScreenT1",
-      circle: "bg-calcKeyRedBackground",
+      circle: "bg-calcKeyRedBackground hover:bg-red-400",
     },
     2: {
       main: "bg-calcKeyGrayBackground text-calcTextDarkBlueT2",
       toggle: "bg-calcBackgroundToggleT2",
       display: "bg-calcBackgroundScreenT2",
-      circle: "bg-calcKeyOrangeBackground",
+      circle: "bg-calcKeyOrangeBackground hover:bg-orange-400",
     },
     3: {
       main: "bg-calcBackgroundMainT3 text-calcTextLightYellowT3",
       toggle: "bg-calcBackgroundToggleT3",
       display: "bg-calcBackgroundToggleT3",
-      circle: "bg-calcKeyCyanBackground",
+      circle: "bg-calcKeyCyanBackground hover:bg-cyan-200",
     },
   };
 
@@ -54,11 +54,11 @@ const Calculator = () => {
             <span className="text-xs tracking-widest">THEME</span>
             <div className="flex flex-col text-xs">
               <div
-                onClick={handleTheme}
                 className={`${themeMap[theme].toggle} col-span-3 grid grid-cols-3 p-1 rounded-full relative`}
               >
                 <div
-                  className={`col-start-${theme} w-5 h-5 rounded-full ${themeMap[theme].circle}`}
+                  onClick={handleTheme}
+                  className={`col-start-${theme} w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
                 />
                 <div className="flex justify-between absolute -top-4 w-full px-2">
                   <span>1</span>
@@ -135,21 +135,21 @@ const KeyButton: React.FC<
   ...props
 }) => {
   const colorMap: MapType = {
-    1: "bg-calcKeyGrayBackground border-calcKeyGrayShadow text-calcTextDarkBlueT1 text-3xl",
-    2: "bg-calcKeyGrayBackgroundT2 border-calcKeyGrayShadowT2 text-calcTextDarkBlueT2 text-3xl",
-    3: "bg-calcKeyDarkVioletBackgroundT3 border-calcKeyDarkVioletShadowT3 text-calcTextLightYellowT3 text-3xl",
+    1: "bg-calcKeyGrayBackground border-calcKeyGrayShadow text-calcTextDarkBlueT1 text-3xl hover:bg-slate-100",
+    2: "bg-calcKeyGrayBackgroundT2 border-calcKeyGrayShadowT2 text-calcTextDarkBlueT2 text-3xl hover:bg-white",
+    3: "bg-calcKeyDarkVioletBackgroundT3 border-calcKeyDarkVioletShadowT3 text-calcTextLightYellowT3 text-3xl hover:bg-purple-900",
   };
 
   const actionColorMap: MapType = {
-    1: "bg-calcKeyDarkBlueBackground border-calcKeyDarkBlueShadow text-white text-xl",
-    2: "bg-calcKeyDarkCyanBackground border-calcKeyDarkCyanShadow text-white text-xl",
-    3: "bg-calcKeyVioletBackground border-calcKeyVioletShadow text-white text-xl",
+    1: "bg-calcKeyDarkBlueBackground border-calcKeyDarkBlueShadow text-white text-xl hover:bg-blue-200/70",
+    2: "bg-calcKeyDarkCyanBackground border-calcKeyDarkCyanShadow text-white text-xl hover:bg-cyan-500/40",
+    3: "bg-calcKeyVioletBackground border-calcKeyVioletShadow text-white text-xl hover:bg-purple-800",
   };
 
   const submitColorMap: MapType = {
-    1: "bg-calcKeyRedBackground border-calcKeyRedShadow text-white text-xl",
-    2: "bg-calcKeyOrangeBackground border-calcKeyOrangeShadow text-white text-xl",
-    3: "bg-calcKeyCyanBackground border-calcKeyCyanShadow text-calcTextDarkBlueT3 text-xl",
+    1: "bg-calcKeyRedBackground border-calcKeyRedShadow text-white text-xl hover:bg-red-400",
+    2: "bg-calcKeyOrangeBackground border-calcKeyOrangeShadow text-white text-xl hover:bg-orange-400",
+    3: "bg-calcKeyCyanBackground border-calcKeyCyanShadow text-calcTextDarkBlueT3 text-xl hover:bg-cyan-200",
   };
 
   return (
@@ -159,7 +159,7 @@ const KeyButton: React.FC<
         action && actionColorMap[theme]
       } ${
         submit && submitColorMap[theme]
-      } rounded-lg flex items-center justify-center p-2 border-b-4 h-16`}
+      } rounded-lg flex items-center justify-center p-2 border-b-4 h-16 cursor-pointer`}
     >
       {value}
     </div>
