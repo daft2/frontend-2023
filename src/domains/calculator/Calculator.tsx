@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 type MapType = {
   [key: number]: string;
@@ -34,13 +34,13 @@ const Calculator = () => {
     },
   };
 
-  const handleTheme = () => {
+  const handleTheme = useCallback(() => {
     if (theme < 3) {
       setTheme(theme + 1);
     } else {
       setTheme(1);
     }
-  };
+  }, [theme]);
 
   const [inputValue1, setInputValue1] = useState("0");
   const [inputValue2, setInputValue2] = useState("0");
@@ -125,10 +125,18 @@ const Calculator = () => {
               <div
                 className={`${themeMap[theme].toggle} col-span-3 grid grid-cols-3 p-1 rounded-full relative`}
               >
-                <div
-                  onClick={handleTheme}
-                  className={`col-start-${theme} w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
-                />
+                {theme == 1 && (
+                  <div
+                    onClick={handleTheme}
+                    className={`col-start-1 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
+                  />
+                )}
+                {theme > 1 && (
+                  <div
+                    onClick={handleTheme}
+                    className={`col-start-${theme} w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
+                  />
+                )}
                 <div className="flex justify-between absolute -top-4 w-full px-2">
                   <span>1</span>
                   <span>2</span>
