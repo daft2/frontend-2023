@@ -145,20 +145,28 @@ const Calculator = () => {
           {!isOperation && (
             <>
               <span className="overflow-hidden text-ellipsis text-sm">
-                {formatValue(parseFloat(inputValue2))}
+                {inputValue2.length > 3
+                  ? formatValue(parseFloat(inputValue2))
+                  : inputValue2}
               </span>
               <span className="overflow-hidden text-ellipsis">
-                {formatValue(parseFloat(inputValue1))}
+                {inputValue1.length > 3
+                  ? formatValue(parseFloat(inputValue1))
+                  : inputValue1}
               </span>
             </>
           )}
           {isOperation && (
             <>
               <span className="overflow-hidden text-ellipsis text-sm">
-                {formatValue(parseFloat(inputValue1))}
+                {inputValue1.length > 3
+                  ? formatValue(parseFloat(inputValue1))
+                  : inputValue1}
               </span>
               <span className="overflow-hidden text-ellipsis">
-                {formatValue(parseFloat(inputValue2))}
+                {inputValue2.length > 3
+                  ? formatValue(parseFloat(inputValue2))
+                  : inputValue2}
               </span>
             </>
           )}
@@ -238,7 +246,12 @@ const Calculator = () => {
             regular
           />
           {/* Fourth Line */}
-          <KeyButton theme={theme} value="." regular />
+          <KeyButton
+            theme={theme}
+            onClick={() => handleInsertNumber(".")}
+            value="."
+            regular
+          />
           <KeyButton
             theme={theme}
             onClick={() => handleInsertNumber("0")}
