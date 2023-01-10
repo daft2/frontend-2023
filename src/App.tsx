@@ -58,7 +58,7 @@ const Homepage = () => {
               className="object-cover w-[15rem] h-[15rem] rounded-lg"
             />
             <div className="flex flex-col items-center">
-              <span className="text-xl text- font-bold">{item.title}</span>
+              <span className="text-xl font-bold">{item.title}</span>
               <span>{item.type}</span>
             </div>
           </div>
