@@ -78,6 +78,10 @@ const Calculator = () => {
   };
 
   const handleOperation = (operator: string) => {
+    if (isOperation) {
+      handleSubmit();
+    }
+
     setIsOperation(true);
     setIsCurrentOperator(operator);
   };
