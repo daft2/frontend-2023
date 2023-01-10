@@ -125,16 +125,22 @@ const Calculator = () => {
               <div
                 className={`${themeMap[theme].toggle} col-span-3 grid grid-cols-3 p-1 rounded-full relative`}
               >
-                {theme == 1 && (
+                {theme === 1 && (
                   <div
                     onClick={handleTheme}
                     className={`col-start-1 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
                   />
                 )}
-                {theme > 1 && (
+                {theme === 2 && (
                   <div
                     onClick={handleTheme}
-                    className={`col-start-${theme} w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
+                    className={`col-start-2 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
+                  />
+                )}
+                {theme === 3 && (
+                  <div
+                    onClick={handleTheme}
+                    className={`col-start-3 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
                   />
                 )}
                 <div className="flex justify-between absolute -top-4 w-full px-2">
