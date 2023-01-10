@@ -18,19 +18,19 @@ const Calculator = () => {
       main: "bg-calcBackgroundMainT1 text-white",
       toggle: "bg-calcBackgroundToggleT1",
       display: "bg-calcBackgroundScreenT1",
-      circle: "bg-calcKeyRedBackground hover:bg-red-400",
+      circle: "col-start-1 bg-calcKeyRedBackground hover:bg-red-400",
     },
     2: {
       main: "bg-calcKeyGrayBackground text-calcTextDarkBlueT2",
       toggle: "bg-calcBackgroundToggleT2",
       display: "bg-calcBackgroundScreenT2",
-      circle: "bg-calcKeyOrangeBackground hover:bg-orange-400",
+      circle: "col-start-2 bg-calcKeyOrangeBackground hover:bg-orange-400",
     },
     3: {
       main: "bg-calcBackgroundMainT3 text-calcTextLightYellowT3",
       toggle: "bg-calcBackgroundToggleT3",
       display: "bg-calcBackgroundToggleT3",
-      circle: "bg-calcKeyCyanBackground hover:bg-cyan-200",
+      circle: "col-start-3 bg-calcKeyCyanBackground hover:bg-cyan-200",
     },
   };
 
@@ -129,24 +129,10 @@ const Calculator = () => {
               <div
                 className={`${themeMap[theme].toggle} col-span-3 grid grid-cols-3 p-1 rounded-full relative`}
               >
-                {theme === 1 && (
-                  <div
-                    onClick={handleTheme}
-                    className={`col-start-1 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
-                  />
-                )}
-                {theme === 2 && (
-                  <div
-                    onClick={handleTheme}
-                    className={`col-start-2 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
-                  />
-                )}
-                {theme === 3 && (
-                  <div
-                    onClick={handleTheme}
-                    className={`col-start-3 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
-                  />
-                )}
+                <div
+                  onClick={handleTheme}
+                  className={`col-start-1 w-5 h-5 rounded-full ${themeMap[theme].circle} cursor-pointer`}
+                />
                 <div className="flex justify-between absolute -top-4 w-full px-2">
                   <span>1</span>
                   <span>2</span>
