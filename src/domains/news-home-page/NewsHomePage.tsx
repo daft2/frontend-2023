@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NavigationOption = ["Home", "New", "Popular", "Trending", "Categories"];
 
@@ -41,6 +41,10 @@ const NewsHomePage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleDrawer = () => setIsDrawerOpen(!isDrawerOpen);
+
+  useEffect(() => {
+    document.title = "News Homepage";
+  }, []);
 
   return (
     <div className="relative">

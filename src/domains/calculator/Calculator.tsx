@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 type MapType = {
   [key: number]: string;
@@ -34,13 +34,13 @@ const Calculator = () => {
     },
   };
 
-  const handleTheme = useCallback(() => {
+  const handleTheme = () => {
     if (theme < 3) {
       setTheme(theme + 1);
     } else {
       setTheme(1);
     }
-  }, [theme]);
+  };
 
   const [inputValue1, setInputValue1] = useState("0");
   const [inputValue2, setInputValue2] = useState("0");
@@ -110,6 +110,10 @@ const Calculator = () => {
         break;
     }
   };
+
+  useEffect(() => {
+    document.title = "Calculator App";
+  }, []);
 
   return (
     <div

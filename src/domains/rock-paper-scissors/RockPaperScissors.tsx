@@ -35,6 +35,10 @@ const RockPaperScissors = () => {
     setPlayerAction(null);
   };
 
+  useEffect(() => {
+    document.title = "Rock Paper Scissors Game";
+  }, []);
+
   return (
     <div className="w-screen h-screen justify-center bg-gradient-to-b font-barlowSemiCondensed flex font-semibold to-rpsBackgroundDark from-rpsBackgroundLight relative">
       <div className="flex flex-col my-8 w-full items-center mx-4">
