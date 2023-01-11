@@ -45,24 +45,31 @@ const Homepage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex w-screen h-screen bg-[url('/images/graph-paper.svg')] bg-stone-900 p-4 justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 h-fit">
-        {PROJECT.map((item) => (
-          <div
-            onClick={() => navigate(item.path)}
-            className="flex flex-col overflow-hidden bg-black/20 h-fit shadow-lg p-2 rounded-xl gap-4 text-white/80 hover:text-white cursor-pointer hover:scale-105 hover:ease-in-out duration-150"
-          >
-            <img
-              src={item.thumbnail}
-              alt={`Project Thumbnail ${item.title}`}
-              className="object-cover w-[15rem] h-[15rem] rounded-lg"
-            />
-            <div className="flex flex-col items-center">
-              <span className="text-xl font-bold">{item.title}</span>
-              <span>{item.type}</span>
+    <div className="w-screen h-screen bg-[url('/images/graph-paper.svg')] bg-stone-900 p-4 overflow-x-hidden font-inter">
+      <div className="max-w-3xl my-12 mx-8 lg:mx-auto">
+        <div className="bg-black/20 shadow-lg rounded-lg overflow-hidden p-6 my-4">
+          <span className="text-3xl font-semibold">
+            Frontend Mentor Challenge
+          </span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 h-fit">
+          {PROJECT.map((item) => (
+            <div
+              onClick={() => navigate(item.path)}
+              className="flex flex-col overflow-hidden bg-neutral-800 border border-neutral-700 h-fit p-2 rounded-xl gap-4 cursor-pointer hover:scale-105 hover:ease-in-out duration-150"
+            >
+              <img
+                src={item.thumbnail}
+                alt={`Project Thumbnail ${item.title}`}
+                className="object-cover w-[15rem] h-[15rem] rounded-lg"
+              />
+              <div className="flex flex-col items-center">
+                <span className="text-xl font-bold">{item.title}</span>
+                <span>{item.type}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
