@@ -7,6 +7,7 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
         barlowSemiCondensed: ["Barlow Semi Condensed", "sans-serif"],
         leagueSpartan: ["League Spartan", "sans-serif"],
+        rubik: ["Rubik", "sans-serif"],
       },
       colors: {
         // News Home Page Colors
