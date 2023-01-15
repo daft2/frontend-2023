@@ -67,6 +67,9 @@ module.exports = {
         calcKeyDarkVioletShadowT3: "hsl(290, 70%, 36%)",
         calcTextLightYellowT3: "hsl(52, 100%, 62%)",
         calcTextDarkBlueT3: "hsl(198, 20%, 13%)",
+        // IP Address Tracker colors
+        ipDarkGray: "hsl(0, 0%, 17%)",
+        ipGray: "hsl(0, 0%, 59%)",
       },
     },
   },
