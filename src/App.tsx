@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { Calculator } from "./domains/calculator";
+import { IpAddressTracker } from "./domains/ip-address-tracker";
 import { NewsHomePage } from "./domains/news-home-page";
 import { RockPaperScissors } from "./domains/rock-paper-scissors";
 
@@ -22,6 +23,12 @@ const PROJECT = [
     thumbnail: "images/calculator/preview.webp",
     path: "/calculator",
   },
+  {
+    title: "IP Address Tracker",
+    type: "App",
+    thumbnail: "images/ip-address-tracker/preview.jpg",
+    path: "/ip-address-tracker",
+  },
 ];
 
 const App = () => {
@@ -35,6 +42,7 @@ const App = () => {
           <Route path="/news-home-page" element={<NewsHomePage />} />
           <Route path="/rock-paper-scissors" element={<RockPaperScissors />} />
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/ip-address-tracker" element={<IpAddressTracker />} />
         </Routes>
       </div>
     </BrowserRouter>
