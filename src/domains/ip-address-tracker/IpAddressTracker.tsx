@@ -20,6 +20,7 @@ const IpAddressTracker = (props: Props) => {
               <input
                 type="text"
                 className="py-4 pl-4 pr-14 w-full text-black rounded-xl"
+                placeholder="Search for any IP Address or domain"
               />
               <span className="absolute inset-y-0 right-0 flex items-center justify-center bg-black w-12 cursor-pointer hover:bg-black/80">
                 <img src="images/ip-address-tracker/icon-arrow.svg" alt="" />
