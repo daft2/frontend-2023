@@ -9,7 +9,7 @@ const IpAddressTracker = (props: Props) => {
         <img
           src="images/ip-address-tracker/pattern-bg.png"
           alt=""
-          className="w-full object-cover min-h-[20rem]"
+          className="w-full object-cover h-[18rem]"
         />
         <div className="absolute top-10 flex flex-col items-center justify-center w-full">
           <h1 className="text-white font-medium text-2xl lg:text-3xl">
@@ -27,7 +27,7 @@ const IpAddressTracker = (props: Props) => {
               </span>
             </div>
           </div>
-          <div className="bg-white flex flex-col lg:flex-row justify-center items-center w-full max-w-xs lg:max-w-3xl shadow rounded-xl py-8 gap-4">
+          <div className="bg-white flex flex-col lg:flex-row justify-center items-center w-full max-w-xs lg:max-w-3xl shadow lg:my-6 rounded-xl py-8 gap-4">
             <DescriptionItem label="ip address" value="192.168.123.123" />
             <div className="hidden lg:block h-[4rem] w-[2px] bg-slate-100" />
             <DescriptionItem label="location" value="Brooklyn, NY 10001" />
