@@ -19,7 +19,7 @@ const IpAddressTracker = (props: Props) => {
             <div className="relative overflow-hidden rounded-xl">
               <input
                 type="text"
-                className="py-4 pl-4 pr-14 w-full text-black rounded-xl"
+                className="py-4 pl-4 pr-14 w-full text-black rounded-xl text-sm lg:text-base"
                 placeholder="Search for any IP Address or domain"
               />
               <span className="absolute inset-y-0 right-0 flex items-center justify-center bg-black w-12 cursor-pointer hover:bg-black/80">
