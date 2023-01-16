@@ -4,7 +4,7 @@ type Props = {};
 
 const IpAddressTracker = (props: Props) => {
   return (
-    <div className="text-[18px] font-rubik">
+    <div className="text-[18px] font-rubik h-screen">
       <div className="w-full h-fit relative">
         <img
           src="images/ip-address-tracker/pattern-bg.png"
@@ -26,10 +26,32 @@ const IpAddressTracker = (props: Props) => {
               </span>
             </div>
           </div>
+          <div className="bg-white flex flex-col lg:flex-row justify-center items-center w-full max-w-xs lg:max-w-3xl shadow rounded-xl py-8 gap-4">
+            <DescriptionItem label="ip address" value="192.168.123.123" />
+            <div className="hidden lg:block h-[4rem] w-[2px] bg-slate-100" />
+            <DescriptionItem label="location" value="Brooklyn, NY 10001" />
+            <div className="hidden lg:block h-[4rem] w-[2px] bg-slate-100" />
+            <DescriptionItem label="timezone" value="UTC -05.00" />
+            <div className="hidden lg:block h-[4rem] w-[2px] bg-slate-100" />
+            <DescriptionItem label="isp" value="SpaceX Starlink" />
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
+const DescriptionItem = ({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) => (
+  <div className="flex flex-col font-bold items-center justify-center lg:items-start lg:justify-start">
+    <h1 className="text-ipGray text-xs uppercase">{label}</h1>
+    <h1 className="text-ipDarkGray">{value}</h1>
+  </div>
+);
 
 export default IpAddressTracker;
