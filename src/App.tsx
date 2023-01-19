@@ -64,12 +64,12 @@ const Homepage = () => {
           {PROJECT.map((item) => (
             <div
               onClick={() => navigate(item.path)}
-              className="flex flex-col overflow-hidden bg-neutral-800 border border-neutral-700 h-fit p-2 rounded-xl gap-4 cursor-pointer hover:scale-105 hover:ease-in-out duration-150"
+              className="flex flex-col items-center overflow-hidden bg-neutral-800 border border-neutral-700 h-fit p-2 rounded-xl gap-4 cursor-pointer hover:scale-105 hover:ease-in-out duration-150"
             >
               <img
                 src={item.thumbnail}
                 alt={`Project Thumbnail ${item.title}`}
-                className="object-cover w-[15rem] h-[15rem] rounded-lg"
+                className="object-cover w-full h-[15rem] rounded-lg"
               />
               <div className="flex flex-col items-center">
                 <span className="text-xl font-bold">{item.title}</span>
