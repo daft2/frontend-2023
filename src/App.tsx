@@ -10,24 +10,28 @@ const PROJECT = [
     type: "Landing Page",
     thumbnail: "images/news-home-page/preview.jpg",
     path: "/news-home-page",
+    completed: true,
   },
   {
     title: "Rock Paper Scissors",
     type: "Game",
     thumbnail: "images/rock-paper-scissors/preview.jpg",
     path: "/rock-paper-scissors",
+    completed: true,
   },
   {
     title: "Calculator",
     type: "App",
     thumbnail: "images/calculator/preview.webp",
     path: "/calculator",
+    completed: true,
   },
   {
     title: "IP Address Tracker",
     type: "App",
     thumbnail: "images/ip-address-tracker/preview.jpg",
     path: "/ip-address-tracker",
+    completed: false,
   },
 ];
 
@@ -66,11 +70,18 @@ const Homepage = () => {
               onClick={() => navigate(item.path)}
               className="flex flex-col items-center overflow-hidden bg-neutral-800 border border-neutral-700 h-fit p-2 rounded-xl gap-4 cursor-pointer hover:scale-105 hover:ease-in-out duration-150"
             >
-              <img
-                src={item.thumbnail}
-                alt={`Project Thumbnail ${item.title}`}
-                className="object-cover w-full h-[15rem] rounded-lg"
-              />
+              <div className="w-full relative">
+                <img
+                  src={item.thumbnail}
+                  alt={`Project Thumbnail ${item.title}`}
+                  className="object-cover w-full h-[15rem] rounded-lg"
+                />
+                {!item.completed && (
+                  <span className="absolute bg-yellow-500/80 font-bold px-2 rounded-full text-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    Work in progress
+                  </span>
+                )}
+              </div>
               <div className="flex flex-col items-center">
                 <span className="text-xl font-bold">{item.title}</span>
                 <span>{item.type}</span>
