@@ -77,9 +77,9 @@ const Homepage = () => {
                   className="object-cover w-full h-[15rem] rounded-lg"
                 />
                 {!item.completed && (
-                  <span className="absolute bg-yellow-500/80 font-bold px-2 rounded-full text-black top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    Work in progress
-                  </span>
+                  <div className="absolute w-full h-full bg-yellow-500/30 font-bold px-2 text-black flex items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <span className="text-2xl">Work in progress</span>
+                  </div>
                 )}
               </div>
               <div className="flex flex-col items-center">
