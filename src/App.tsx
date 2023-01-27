@@ -59,9 +59,9 @@ const Homepage = () => {
   return (
     <div className="w-screen h-screen bg-[url('/images/graph-paper.svg')] bg-stone-900 p-4 overflow-x-hidden font-inter">
       <div className="max-w-3xl my-12 mx-8 lg:mx-auto">
-        <div className="bg-black/20 shadow-lg rounded-lg overflow-hidden p-6 my-4">
-          <span className="text-3xl font-semibold">
-            Frontend Mentor Challenge
+        <div className="bg-black/20 shadow-lg rounded-lg overflow-hidden p-6 my-4 flex justify-center">
+          <span className="text-lg xl:text-3xl font-semibold">
+            Frontend Mentor Challenge Submission
           </span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 h-fit">
@@ -74,11 +74,13 @@ const Homepage = () => {
                 <img
                   src={item.thumbnail}
                   alt={`Project Thumbnail ${item.title}`}
-                  className="object-cover w-full h-[15rem] rounded-lg"
+                  className="object-cover w-full lg:h-[15rem] rounded-lg"
                 />
                 {!item.completed && (
                   <div className="absolute w-full h-full bg-yellow-500/30 font-bold px-2 text-black flex items-center justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <span className="text-2xl">Work in progress</span>
+                    <span className="text-md lg:text-2xl">
+                      Work in progress
+                    </span>
                   </div>
                 )}
               </div>
